@@ -5,9 +5,9 @@
    */
   echo "<h2>Using the readdir() Function</h2>";
 
-  if ($dh = opendir('images/')) {
+  if ($dh = opendir('cats/')) {
       while (($file = readdir($dh)) !== false) {
-          echo "file: {$file} <br>";
+          echo "{$file} <br>";
       }
 
      closedir($dh);
@@ -19,10 +19,10 @@
    */
   echo "<h2>Using the scandir() Function</h2>";
 
-  $files = scandir('images/');
+  $files = scandir('cats/');
 
   foreach ($files as $file) {
-    echo "file: {$file} <br>";
+    echo "{$file} <br>";
   }
 
   /**
@@ -31,8 +31,8 @@
    */
   echo "<h2>Using the scandir() Function (No Dots)</h2>";
 
-  $files = array_diff(scandir('images/'), ['.', '..']);
+  $files = array_diff(scandir('cats/'), ['.', '..']);
 
   foreach ($files as $file) {
-    echo "file: {$file} <br>";
+    echo "{$file} <br>";
   }
