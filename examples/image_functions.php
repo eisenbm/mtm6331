@@ -10,7 +10,7 @@
   * the size of an image. It requires a filename parameter.
   */
   echo "<h2>Retrieving the size of an Image.</h2>";
-  $size = getimagesize('cats/cat-1.jpg');
+  $size = getimagesize('../cats/cat-1.jpg');
   echo "<pre>";
   print_r($size);
   echo "</pre>";
@@ -22,10 +22,10 @@
   * NOTE: it will not destory the saved image.
   */
   echo "<h2>Creating a new image from existing image</h2>";
-  $copy = imagecreatefromjpeg('cats/cat-1.jpg');
-  imagejpeg($copy, 'tmp/cat-1-copy.jpg');
+  $copy = imagecreatefromjpeg('../cats/cat-1.jpg');
+  imagejpeg($copy, '../tmp/cat-1-copy.jpg');
   imagedestroy($copy);
-  echo "<img src=\"tmp/cat-1-copy.jpg\" alt=\"Cat 1 Copy\" {$size[3]}>";
+  echo "<img src=\"../tmp/cat-1-copy.jpg\" alt=\"Cat 1 Copy\" {$size[3]}>";
 
   /*
   * iamgescale scales using a given new width and height.
@@ -33,10 +33,10 @@
   * preserved.
   */
   echo "<h2>Creating a thumbnail image from existing image</h2>";
-  $thumb = imagecreatefromjpeg('cats/cat-2.jpg');
+  $thumb = imagecreatefromjpeg('../cats/cat-2.jpg');
   $thumb = imagescale($thumb, 300);
-  imagejpeg($thumb, 'tmp/cat-2-thumb.jpg');
+  imagejpeg($thumb, '../tmp/cat-2-thumb.jpg');
   imagedestroy($thumb);
 
-  $size = getimagesize('tmp/cat-2-thumb.jpg');
-  echo "<img src=\"tmp/cat-2-thumb.jpg\" alt=\"Cat 2 Thumbnail\" {$size[3]} >";
+  $size = getimagesize('../tmp/cat-2-thumb.jpg');
+  echo "<img src=\"../tmp/cat-2-thumb.jpg\" alt=\"Cat 2 Thumbnail\" {$size[3]} >";
