@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Creating a Image Gallery with PHP</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <img class="image" alt="Cat Picture 1" src="cats/cat-1.jpg" srcset="
+      cats/cat-1-320.jpg 320w,
+      cats/cat-1-640.jpg 640w,
+      cats/cat-1-960.jpg 960w," sizes="
+      (min-width: 1200px) 30vw,
+      (min-width: 640px) 50vw,
+      100vw">
+
+  <img class="image" alt="Cat Picture 2" src="cats/cat-2.jpg" srcset="
+      cats/cat-2-320.jpg 320w,
+      cats/cat-2-640.jpg 640w,
+      cats/cat-2-960.jpg 960w," sizes="
+      (min-width: 1200px) 30vw,
+      (min-width: 640px) 50vw,
+      100vw">
+
+  <img class="image" alt="Cat Picture 3" src="cats/cat-3.jpg" srcset="
+      cats/cat-3-320.jpg 320w,
+      cats/cat-3-640.jpg 640w,
+      cats/cat-3-960.jpg 960w," sizes="
+      (min-width: 1200px) 30vw,
+      (min-width: 640px) 50vw,
+      100vw">
+</body>
+
+</html>

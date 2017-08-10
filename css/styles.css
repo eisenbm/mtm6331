@@ -1,0 +1,42 @@
+/* Gallery and Images */
+.gallery {
+    display: flex;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 15px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.image {
+    width: 100px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 100%;
+    margin: 7.5px;
+    box-shadow: 0 0 15px 0px rgba(0,0,0,0.5);
+    transition: 0.3s;
+    align-self:
+}
+
+.image:hover {
+    transform: scale(1.025);
+}
+
+
+/* Medium Screens */
+@media (min-width: 640px) {
+    .image {
+        flex-basis: 48%;
+/*
+        width: 48%;
+        margin: 1%;
+*/
+    }
+}
+
+@media (min-width: 1200px) {
+    .image {
+        flex-basis: 30%;
+    }
+}
