@@ -40,3 +40,19 @@
 
   $size = getimagesize('../tmp/cat-2-thumb.jpg');
   echo "<img src=\"../tmp/cat-2-thumb.jpg\" alt=\"Cat 2 Thumbnail\" {$size[3]} >";
+
+  /*
+  * This code creates responsive images for future use.
+  */
+  /* $sizes = [320, 640, 960];
+  $images = ['../cats/cat-1.jpg'];
+
+  for ($i = 1; $i <= 3; $i++) {
+    $tmp = imagecreatefromjpeg("../cats/cat-{$i}.jpg");
+
+    foreach ($sizes as $size) {
+      $tmp = imagescale($tmp, $size);
+      imagejpeg($tmp, "../tmp/cat-{$i}-{$size}.jpg");
+    }
+    imagedestroy($tmp);
+  } */
