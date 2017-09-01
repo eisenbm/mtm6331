@@ -7,7 +7,7 @@
 	$fruits = ['apples', 'berries', 'grapes', 'bananas'
 
 	for ($i = 0; $i < count($colors); $i++) {
-		echo '<h2 style="background-color:'.$fruits[$i].'; padding:5px;">'.$colors[$i].' '.$fruits[$i].'<h2>';
+		echo '<h2 style="background-color:'.$fruits[$i].'; padding:5px;">'.$color[$i].' '.$fruits[$i].'<h2>';
 
 
 	/*
@@ -19,7 +19,7 @@
 
 		if ($remainder = 0) {
 			echo '<li>'.$i.'</li>'
-		
+
 	}
 	echo '</ul>'
 
