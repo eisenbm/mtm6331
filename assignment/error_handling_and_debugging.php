@@ -29,7 +29,10 @@
     echo "<h3 style=\"margin: 0 60px; padding: 25px; background-color: #C0DEFF; color: #033078; border: 3px solid #033078; \">{$greeting}, My name is {$your_name}.</h3>";
   }
 
-  /* RAINBOW: Output the colors of the rainbow */
+  /* RAINBOW: Output the colors of the rainbow
+  * There should be a div for each color with the color background
+  * and the name of the color in the div.
+  */
   echo "<h2 style=\"margin-left: 30px;\">Rainbow</h2>";
 
   $colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
@@ -60,7 +63,37 @@
   echo "<h3 style=\"clear: both; margin: 10px 10px 0 0; \"><strong>Winner! Winner! Chicken Dinner!</strong></h3>";
   echo "</div>";
 
-  
+  /* HAPPY HIPPO, ANGRY DUCK: Chooses the emotion at random and finds that
+  * appropriate animal. Each animal must have one emotion, and one emotion per
+  * animal. The DUCK is always ANGRY.
+  */
+  echo "<h2 style=\"margin-left: 30px;\">Happy Hippo, Angry Duck</h2>";
+
+  $emotions = ['Happy', 'Angry', 'Sad', 'Worried', 'Grumpy', 'Excited', 'Confused'];
+  $animals = ['Hippo', 'Duck', 'Chicken', 'Rabbit', 'Moose', 'Dog', 'Cow'];
+
+  // Randomizes the arrays
+  shuffle($emotions);
+  shuffle($animals);
+
+  echo "<div style=\"margin: 0 60px\">";
+  foreach($emotions as $emotion) {
+    if ($emotion == 'Angry') {
+      $duck = array_search('Duck', $animals);
+
+      echo "<p style=\"padding: 10px; background-color: #F6CCD1; color: #5F111A;\">{$emotion} {$animals[$duck]}</p>";
+      array_splice($animals, $duck, 1);
+    } else {
+      // If Duck is the next animal, move to the back
+      if ($animals[0] == 'Duck') {
+        $duck = array_shift($animals);
+        array_push($animals, $duck);
+      }
+      $animal = array_shift($animals);
+      echo "<p style=\"padding: 10px; background-color: #FFF2C0; color: #725300;\">{$emotion} {$animal}</p>";
+    }
+
+  }
 
 
 ?>
