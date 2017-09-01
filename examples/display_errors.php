@@ -2,4 +2,4 @@
 	error_reporting(E_ALL);
 	ini_set("display_errors", 1);
 
-	include "../debug_me.php";
+	include "error_handling_and_debugging.php";
