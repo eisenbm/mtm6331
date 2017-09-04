@@ -2,10 +2,7 @@
 #### Fall 2017
 
 ## Description
-This repo contains code examples and starter projects for each week of the course. Each week's examples and code are stored in their own folder.
-
-## How to Use
-
+This repo is for MTM6331: Server-Side Web Development Course for Fall 2017. It contains code examples and starter projects for each week of the course. Each week's examples and code are stored in their own branch.
 
 ## Outline
 1. week1 - Basic PHP syntax and debugging techniques
@@ -21,3 +18,6 @@ This repo contains code examples and starter projects for each week of the cours
 8. week8 - Contact Book Database Design
 9. week9 - Create a Contact Book App with PHP and MySql
 10. week10 - Create an Appointment Reservation System
+
+## How to Use
+From the branch select box, select the desired week. Click the "Clone or Download" button and then click "Downlaod ZIP".
