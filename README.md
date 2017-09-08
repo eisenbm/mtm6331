@@ -1,23 +1,16 @@
 # MTM6331:  Server-side Web Development
 #### Fall 2017
 
-## Description
-This repo is for MTM6331: Server-Side Web Development Course for Fall 2017. It contains code examples and starter projects for each week of the course. Each week's examples and code are stored in their own branch.
+## Week 3: Creating a PHP Template
 
-## Outline
-1. week1 - Basic PHP syntax and debugging techniques
-2. week2 - Convert HTML page into a PHP page
-3. week3 - Create a PHP Template
-4. week4 - Create an Image Gallery using PHP
-   - PHP Loops
-   - Directory Functions
-   - Image Functions
-5. week5 - Create a Movie Catelog
-6. week6 - Create a Forms with PHP Validation
-7. week7 - PHP Standards
-8. week8 - Contact Book Database Design
-9. week9 - Create a Contact Book App with PHP and MySql
-10. week10 - Create an Appointment Reservation System
+Today we will learn how to create a PHP template and dynamically create multiple pages off of a single template.
 
-## How to Use
-From the branch select box, select the desired week. Click the "Clone or Download" button and then click "Downlaod ZIP".
+For more information about what we will be cover, check out the following:
+- [include](http://php.net/manual/en/function.include.php)
+- [include_once](http://php.net/manual/en/function.include-once.php)
+- [require](http://php.net/manual/en/function.require.php)
+- [require_once](http://php.net/manual/en/function.require-once.php)
+- [Associative Arrays](https://www.w3schools.com/php/php_arrays.asp)
+- [Conditional Statements](https://www.w3schools.com/php/php_if_else.asp)
+- [isset](http://php.net/manual/en/function.isset.php)
+- [empty](http://php.net/manual/en/function.empty.php)
