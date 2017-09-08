@@ -27,3 +27,4 @@
   unset($string);
 
   var_dump($string);
+?>
