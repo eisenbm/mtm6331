@@ -1,4 +1,13 @@
-# Created by https://www.gitignore.io/api/macos
+
+# Created by https://www.gitignore.io/api/macos,composer
+
+### Composer ###
+composer.phar
+/vendor/
+
+# Commit your application's lock file http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file
+# You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
+# composer.lock
 
 ### macOS ###
 *.DS_Store
@@ -27,6 +36,12 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# End of https://www.gitignore.io/api/macos
+# End of https://www.gitignore.io/api/macos,composer
 
-tmp/
+# Project Ignore
+images/cat-1-copy.jpg
+images/cat-1-thumb.jpg
+images/cat-2-copy.jpg
+images/cat-2-thumb.jpg
+images/cat-3-copy.jpg
+images/cat-3-thumb.jpg
