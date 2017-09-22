@@ -37,3 +37,11 @@ Temporary Items
 .apdisk
 
 # End of https://www.gitignore.io/api/macos,composer
+
+# Project Ignore
+images/cat-1-copy.jpg
+images/cat-1-thumb.jpg
+images/cat-2-copy.jpg
+images/cat-2-thumb.jpg
+images/cat-3-copy.jpg
+images/cat-3-thumb.jpg
