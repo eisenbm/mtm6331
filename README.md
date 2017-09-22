@@ -1,23 +1,9 @@
-# MTM6331:  Server-side Web Development
-#### Fall 2017
+# MTM6331: Server-Side Web Development
+## Week 5: Creating a Movie Catalog
 
-## Description
-This repo is for MTM6331: Server-Side Web Development Course for Fall 2017. It contains code examples and starter projects for each week of the course. Each week's examples and code are stored in their own branch.
+Today we will be creating a Movie Catalog using PHP. We will learn how to use to read and convert a JSON file to be used with PHP, use the query strings, make friendly URLs, and use the Twig Templating engine.
 
-## Outline
-1. week1 - Basic PHP syntax and debugging techniques
-2. week2 - Convert HTML page into a PHP page
-3. week3 - Create a PHP Template
-4. week4 - Create an Image Gallery using PHP
-   - PHP Loops
-   - Directory Functions
-   - Image Functions
-5. week5 - Create a Movie Catelog
-6. week6 - Create a Forms with PHP Validation
-7. week7 - PHP Standards
-8. week8 - Contact Book Database Design
-9. week9 - Create a Contact Book App with PHP and MySql
-10. week10 - Create an Appointment Reservation System
-
-## How to Use
-From the branch select box, select the desired week. Click the "Clone or Download" button and then click "Downlaod ZIP".
+For more information about what we will be cover, check out the following:
+- [file_get_contents](http://php.net/manual/en/function.file-get-contents.php)
+- [json_decode](http://php.net/manual/en/function.json-decode.php)
+- 
