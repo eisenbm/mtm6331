@@ -73,8 +73,13 @@ html, body {
   font-family: 'Open Sans', sans-serif;
 }
 
-a {
+a, a:link, a:visited {
+  color: #2780e3;
   text-decoration: none;
+}
+
+a:hover {
+  color: #1e5ca0;
 }
 
 h1, h2, h3 {
@@ -88,25 +93,36 @@ p {
   line-height: 1.5;
 }
 
+.header {
+  padding: 25px 0 0 0;
+  text-align: center;
+}
+
 .page-title {
   font-weight: 400;
-  margin: 25px 0;
+  margin: 25px 0 0 0;
   text-align: center;
 }
 
 .movie {
+  flex-basis: 350px;
   margin: 10px;
   padding: 20px;
   text-align: center;
 }
 
-.movie-page {
+.movie-page, .error-page {
   background-color: #fff;
   box-shadow: 0 0 3px 0 rgba(0,0,0, 0.2);
   flex-wrap: nowrap;
   margin: 15px auto;
   max-width: 900px;
   padding: 25px;
+}
+
+.error-page {
+  flex-wrap: wrap;
+  text-align: center;
 }
 
 .movie-details {
@@ -118,6 +134,13 @@ p {
   font-weight: 300;
 }
 
+.error-title {
+  color: #333;
+  flex-basis: 100%;
+  font-size: 3em;
+  font-weight: 700;
+}
+
 .movie-poster {
   box-shadow: 0 0 3px 1px rgba(0,0,0, 0.2);
   height: 400px;
@@ -127,16 +150,8 @@ p {
   font-size: 0.8em;
 }
 
-.nav {
-  margin: 25px auto 0 auto;
-  max-width: 900px;
-  padding: 25px;
-}
-
-.nav-item {
-  color: #999;
-}
-
-.nav-item:hover {
-  color: #333;
+.error-message {
+  flex-basis: 100%;
+  line-height: 1.5;
+  margin: 15px 0;
 }
