@@ -1,7 +1,7 @@
 # MTM6331: Server-Side Web Development
-## Week 5: Creating a Movie Catalog
+## Week 5: Creating a Contact Book with Twig
 
-Today we will be creating a Movie Catalog using PHP. We will learn how to use to read and convert a JSON file to be used with PHP, use the query strings, make friendly URLs, and use the Twig Templating engine.
+Today we will be creating a Contact Book using PHP. We will learn how to use to read and convert a JSON file to be used with PHP, use the query strings, make friendly URLs, and use the Twig Templating engine.
 
 ### Installing Twig
 To use the Twig Templating Engine, you must first install it. The easiest way to install Twig is using composer.
