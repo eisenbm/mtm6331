@@ -1,0 +1,7 @@
+RewriteEngine On
+
+# Redirect to custom 404 page
+ErrorDocument 404 /contacts-final/index.php?error=404
+
+# Create clean url for contact page
+RewriteRule ^contact/(.*) index.php?contact=$1 [NC,L]

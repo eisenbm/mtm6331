@@ -1,0 +1,189 @@
+/*
+* Author: Cindy Juarez
+* Source: https://codepen.io/sceendy/pen/GJXEEx
+*/
+
+/* Color Variables */
+.hidden {
+  display: none;
+}
+
+.center {
+  display: block;
+  margin: 0 auto;
+}
+
+/* Flex Grid - Mixins */
+/* Styles */
+html, body {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  background: #f1f1f1;
+}
+
+a, a:visited, a:link {
+  color: #333;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #2780e3;
+}
+
+.contacts {
+  width: 420px;
+  display: block;
+  position: relative;
+  margin: 50px auto;
+  background: #fff;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+header {
+  background-color: #3F51B5;
+  color: #fff;
+  padding: 15px;
+  box-shadow: 0 2px 2px -2px #444;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: flex;
+  display: -ms-flexbox;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  @inlude justify-content(center);
+}
+
+.panel, .contact-list li {
+  border-bottom: 1px solid #f1f1f1;
+  padding: 15px 10px 0;
+}
+
+.contact-list, .contact {
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  height: 400px;
+}
+.contact-list li {
+  display: -moz-box;
+  display: -webkit-flex;
+  display: flex;
+  display: -ms-flexbox;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  color: #919191;
+  padding: 10px;
+}
+.contact-list li:nth-child(even) {
+  background: #f7f7f7;
+}
+.contact-list img {
+  border-radius: 50%;
+  float: left;
+  margin-left: 10px;
+  width: 48px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.heading--name, .contact-name, .contact-company {
+  color: #444;
+  font-weight: 400;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.contact-name, .contact-company {
+  text-align: center;
+}
+
+.contact-bday {
+  color: #666;
+  font-weight: 300;
+  text-align: center;
+}
+
+.contact-info {
+  width: 80%;
+}
+
+.contact-item {
+  display: inline-block;
+  font-size: 0.7em;
+}
+
+.contact-item .fa {
+  font-size: 1.3em;
+  margin-right: 2px;
+  margin-left: 2px;
+}
+
+.contact-info {
+  margin: 0;
+  padding: 0;
+}
+
+.contact {
+  padding: 10px;
+}
+
+.contact img {
+  display: block;
+  margin: 15px auto;
+  width: 125px;
+}
+
+.contact-block {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  padding: 5px 10px;
+}
+
+.contact-label {
+  color: #999;
+  flex-basis: 30%;
+}
+
+.btn-add {
+  height: 40px;
+  font-weight: 700;
+  font-size: 18px;
+  background: #3F51B5;
+  color: #fff;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  display: block;
+}
+.btn-add .fa {
+  font-size: 14px;
+}
+
+.btn-back, .btn-back:link, .btn-back:visited, .btn-back:hover {
+  color: #fff;
+  display: block;
+  font-size: 21px;
+  text-decoration: none;
+}
+
+.pre {
+  background-color: #eee;
+  display: block;
+  padding: 5px;
+  font-family: monospace;
+  font-size: 0.8em;
+  text-align: center;
+}
