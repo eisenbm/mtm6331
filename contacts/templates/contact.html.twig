@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ SITE_URL }}/css/style.css">
+    <title>My Contact Book</title>
+  </head>
+  <body>
+    <div class="contacts">
+        <header class="contacts-header">
+          <a class="btn-back" href="{{ SITE_URL }}/">Back</a>
+        </header>
+        <div class="contact">
+          <img src="{{ portrait }}">
+          <h1 class="contact-name">{{ name }}</h1>
+          <h4 class="contact-company">{{ company }}</h4>
+          <h3 class="contact-bday">{{ birthday }}</h3>
+
+          <div class="contact-block">
+            <div class="contact-label">Email</div>
+            <div class="contact-info"><a href="mailto:{{ email }}">{{ email }}</a></div>
+          </div>
+
+          <div class="contact-block">
+            <div class="contact-label">Phone</div>
+            <div class="contact-info">{{ phone }}</div>
+          </div>
+
+          <div class="contact-block">
+            <div class="contact-label">Address</div>
+            <div class="contact-info">
+              {{ address.street }}<br>
+              {{ address.city }}, {{ address.state }} {{ address.zip }}
+            </div>
+          </div>
+        </div>
+    </div>
+  </body>
+</html>
