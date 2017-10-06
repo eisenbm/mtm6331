@@ -55,7 +55,6 @@ header {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  @inlude justify-content(center);
 }
 
 .panel, .contact-list li {
@@ -186,4 +185,42 @@ header {
   font-family: monospace;
   font-size: 0.8em;
   text-align: center;
+}
+
+a.contact-add, a:link.contact-add, a:visited.contact-add {
+  color: #fff;
+}
+
+
+/* Contact Form */
+.errors {
+  background-color: #F5DDD9;
+  border: 1px solid #AE9E9A;
+  padding: 15px;
+}
+
+form {
+  padding: 10px;
+}
+
+label {
+  display: block;
+  margin: 10px 0 0 0;
+  padding: 5px 0;
+}
+
+input[type="text"], input[type="email"], input[type="tel"], input[type="date"] {
+  box-sizing: border-box;
+  display: block;
+  padding: 10px;
+  width: 100%;
+}
+
+input[type="submit"] {
+  background-color: #fff;
+  border: 1px solid #313AA5;
+  display: block;
+  font-size: 18px;
+  padding: 10px 15px;
+  margin: 10px auto;
 }
