@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ SITE_URL }}/css/style.css">
-    <title>My Contact Book</title>
-  </head>
-  <body>
+  {% extends "includes/base.html.twig" %}
+
+    {% block content %}
     <div class="contacts">
         <header class="contacts-header">
           <h1 class="contacts-title center">My Contacts</h1>
+          <a class="contact-add" href="{{ SITE_URL }}/add">
+            <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+          </a>
         </header>
         <ul class="contact-list">
           {% for contact in contacts %}
@@ -28,5 +24,4 @@
           {% endfor %}
         </ul>
     </div>
-  </body>
-</html>
+    {% endblock %}

@@ -1,29 +1,5 @@
 <?php
-  /* Site path constants */
-  define("SITE_ROOT", __DIR__);
-  define("SITE_URL", "/mtm6331/week6/contacts");
-
-  /* Load the Twig Library */
-  require_once SITE_ROOT.'/vendor/autoload.php';
-
-  /* Configure Twig */
-  $loader = new Twig_Loader_Filesystem(SITE_ROOT.'/templates');
-  $twig = new Twig_Environment($loader, array(
-    'cache' => SITE_ROOT.'/cache',
-    'auto_reload' => true
-  ));
-
-  // Set absolute URL to site to a Twig Global Variable
-  $twig->addGlobal("SITE_URL", SITE_URL);
-
-  // Get contact data from JSON File
-  // Retrieve file content using file_get_contents
-  // file_get_contents returns a string
-  $json = file_get_contents(SITE_ROOT."/data/contacts.json");
-  // convert json string to array
-  // json_decode take two parameters: json string, boolean
-  // Boolean == true, return array, false return an object
-  $contacts = json_decode($json, true);
+  require_once "config.php";
 
   /**
    * Replaces space with underscore (_)
@@ -71,7 +47,7 @@
   $contacts = array_map(function($contact) {
     // Add a new item to the contacts array: url
     // The value is the url to the contact's detail page.
-    $contact['url'] = SITE_URL."/?contact=".add_underscore($contact['name']);
+    $contact['url'] = SITE_URL."/contact/".add_underscore($contact['name']);
 
     // Reformat the birthday value using data() and strtotime()
     // New format: January 01, 2017
@@ -82,7 +58,6 @@
     * dividing the value into different parts (street, city, state ...)
     */
     if (strpos($contact['address'], ",")) {
-
       // The explode() function takes a string, and divides it by the delimiter
       $address = explode(", ", $contact['address']);
 
@@ -99,10 +74,12 @@
     return $contact;
   }, $contacts);
 
+
   /**
   * Create a primative routing system:
   * Determine which template to display based on the query string
   */
+
   // Display contact template with contact details
   if (isset($_GET['contact'])) {
     $contact = get_contact($contacts);
@@ -110,7 +87,23 @@
     if ($contact) {
       $template = $twig->load('contact.html.twig');
       echo $template->render($contact);
+
+    // Display error template if no contact found
+    } else {
+      $contact = trim($_GET['contact']);
+
+      header("HTTP/1.0 404 Not Found");
+
+      $template = $twig->load('error.html.twig');
+      echo $template->render(["contact"=>$contact]);
     }
+
+  // Display error page if 404 error is received
+  } else if (isset($_GET['error']) && $_GET['error'] == 404) {
+    $page = $_SERVER['REQUEST_URI'];
+
+    $template = $twig->load('error.html.twig');
+    echo $template->render(["page" => $page]);
 
   // Display index template with all contacts
   } else {
