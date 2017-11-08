@@ -27,11 +27,11 @@ Retrieve all the rows, but just the `contact_birthday` column from the `contacts
 SELECT `contact_birthday` FROM `contacts` ORDER BY `contact_birthday`;
 ```
 
-### SELECT all Contacts' full address
-Retrieve all the rows, but because the address is split across multiple columns, we need to list each column separated by a comma.
+### SELECT all Contacts' full address with custom column names
+Retrieve all the rows, but because the address is split across multiple columns, we need to list each column separated by a comma. To customize the column names we will use the `AS` statement.
 
 ```
-SELECT `contact_street`, `contact_city`, `contact_state`, `contact_zip` FROM `contacts`;
+SELECT `contact_street` as `street`, `contact_city` as `city`, `contact_state` as `state`, `contact_zip` as `zip` FROM `contacts`;
 ```
 ### SELECT only those Contacts with company of "Zidant" using the WHERE clause
 When retrieving rows based on a condition, we use the WHERE clause.
@@ -81,5 +81,5 @@ INSERT INTO `contacts` (`contact_id`, `contact_name`, `contact_company`, `contac
 MySQL is a relational database management system, and if tables are normalized properly, they will often reference each other using foreign keys. If a new row has a foreign key column it is necessary that its values match the correct corresponding primary key. In short, when adding a new row with a foreign key make sure you know what the value of the primary key. In this case: our new contact primary key has a value of `124`
 
 ```
-INSERT INTO `phones`(`phone_id`, `phone_type`, `phone_number`, `contact_id`) VALUES (NULL,"mobile","5555555555",124);
+INSERT INTO `phones` VALUES (NULL,"mobile","5555555555",124);
 ```
