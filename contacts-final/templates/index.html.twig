@@ -1,0 +1,34 @@
+  {% extends "base.html.twig" %}
+
+    {% block content %}
+    <div class="contacts">
+        <header class="contacts-header">
+          <h1 class="contacts-title center">My Contacts</h1>
+          <a class="contact-add" href="{{ SITE_URL }}/add">
+            <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+          </a>
+        </header>
+        <div class="panel">
+    				<form action="{{ SITE_URL }}/search/" class="form-search">
+    						<i class="material-icons search-icon">search</i>
+    						<input class="form-input" name="query" placeholder="Search contacts by name..." value="{{ search }}" />
+                <a class="refresh-icon" href="{{ SITE_URL }}"><i class="material-icons refresh-icon">refresh</i></a>
+    				</form>
+    		</div>
+        <ul class="contact-list">
+          {% for contact in contacts %}
+          <li>
+            <img src="{{ contact.thumbnail }}" alt="{{ contact.name }}">
+            <div class="contact-info">
+              <h2 class="heading--name">
+                <a href="{{ contact.url }}">
+                  {{ contact.name }}
+                </a>
+               </h2>
+               <div class="contact-item">{{ contact.company}}</div>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+    </div>
+    {% endblock %}

@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Redirect to custom 404 page
+ErrorDocument 404 /contacts/index.php?error=404
+
+# Create clean url for contact and add page
+RewriteRule ^contact/(.*) contact.php?contact=$1 [NC,L]
+RewriteRule ^add add.php [NC,L]
+RewriteRule ^search/(.*) search.php$1 [NC,L]

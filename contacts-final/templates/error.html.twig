@@ -1,0 +1,19 @@
+  {% extends "base.html.twig" %}
+
+    {% block content %}
+    <div class="contacts">
+        <header class="contacts-header">
+          <a class="btn-back" href="{{ SITE_URL }}/">Back</a>
+        </header>
+        <div class="contact">
+          {% if contact %}
+          <h1 class="contact-name">No Contact Found</h1>
+          <h3 class="contact-bday">The contact, {{ contact }}, could not be found.</h3>
+          {% else %}
+          <h1 class="contact-name">Page Not Found</h1>
+          <h3 class="contact-bday">The following page could not be found.</h3>
+          <p class="pre">{{ page }}</p>
+          {% endif %}
+        </div>
+    </div>
+    {% endblock %}

@@ -1,0 +1,51 @@
+  {% extends "base.html.twig" %}
+
+    {% block content %}
+    <div class="contacts">
+        <header class="contacts-header">
+          <a class="btn-back" href="{{ SITE_URL }}/">Cancel</a>
+        </header>
+        <div class="contact">
+          {% if errors %}
+          <div class="errors">
+            {% for input in errors %}
+              <p>The {{ input }} field is invalid</p>
+            {% endfor %}
+          </div>
+          {% endif %}
+          <form method="post">
+            <input type="hidden" name="thumbnail" value="http://placehold.it/48x48">
+            <input type="hidden" name="portrait" value="http://placehold.it/300x400">
+
+            <h1 class="contact-name">New Contact</h1>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" value="{{ form.name }}">
+
+            <label for="company">Company</label>
+            <input type="text" name="company" value="{{ form.company }}">
+
+            <label for="email">Email</label>
+            <input type="email" name="email" value="{{ form.email }}">
+
+            <label for="phone">Phone</label>
+            <input type="tel" name="phone" value="{{ form.phone }}">
+
+            <label for="address">Street</label>
+            <input type="text" name="street" value="{{ form.street }}">
+
+            <label for="address">City</label>
+            <input type="text" name="city" value="{{ form.city }}">
+
+            <label for="address">State/Province</label>
+            <input type="text" name="state" value="{{ form.state }}">
+
+            <label for="address">Zip/Postal</label>
+            <input type="text" name="zip" value="{{ form.zip }}">
+
+            <label for="birthday">Birthday</label>
+            <input type="date" name="birthday" value="{{ form.birthday }}">
+
+            <input type="submit" name="add_contact" value="Add Contact">
+        </div>
+    </div>
+    {% endblock %}
