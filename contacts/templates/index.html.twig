@@ -1,4 +1,4 @@
-  {% extends "includes/base.html.twig" %}
+  {% extends "base.html.twig" %}
 
     {% block content %}
     <div class="contacts">
@@ -11,7 +11,7 @@
         <div class="panel">
     				<form action="{{ SITE_URL }}" class="form-search">
     						<i class="material-icons search-icon">search</i>
-    						<input class="form-input" name="search" placeholder="Search contacts by name..." />
+    						<input class="form-input" name="query" placeholder="Search contacts by name..." />
                 <a class="refresh-icon" href="{{ SITE_URL }}"><i class="material-icons refresh-icon">refresh</i></a>
     				</form>
     		</div>

@@ -4,5 +4,5 @@ RewriteEngine On
 ErrorDocument 404 /mtm6331/week5/contacts-final/index.php?error=404
 
 # Create clean url for contact and add page
-RewriteRule ^contact/(.*) index.php?contact=$1 [NC,L]
+RewriteRule ^contact/(.*) contact.php?contact=$1 [NC,L]
 RewriteRule ^add add.php [NC,L]

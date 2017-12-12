@@ -38,6 +38,8 @@ Temporary Items
 
 # End of https://www.gitignore.io/api/macos,composer
 
+cache/*
+
 # Project Ignore
 images/cat-1-copy.jpg
 images/cat-1-thumb.jpg
