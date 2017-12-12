@@ -3,6 +3,21 @@
   define("SITE_ROOT", __DIR__);
   define("SITE_URL", "/mtm6331/week9/contacts-final");
 
+  /* Database connection settings. */
+  $dbname = "mtm6331-contacts";
+  $dbuser = "root";
+  $dbpass = "root";
+  $dbhost = "localhost";
+
+  // Connect to the local database using PDO.
+  try {
+      $pdo = new PDO("mysql:host=" . $dbhost . ";dbname=" . $dbname, $dbuser, $dbpass);
+  } catch (PDOException $err) {
+      header('HTTP/1.1: 500');
+      echo "Database connection problem" . $err->getMessage();
+      exit();
+  }
+
   /* Load the Twig Library */
   require_once SITE_ROOT.'/vendor/autoload.php';
 
@@ -24,20 +39,7 @@
   // Define $contacts so that it equals something
   $contacts = [];
 
-  // Database connection settings.
-  $dbname = "mtm6331-contacts";
-  $dbuser = "root";
-  $dbpass = "root";
-  $dbhost = "localhost";
 
-  // Connect to the local database using PDO.
-  try {
-      $pdo = new PDO("mysql:host=" . $dbhost . ";dbname=" . $dbname, $dbuser, $dbpass);
-  } catch (PDOException $err) {
-      header('HTTP/1.1: 500');
-      echo "Database connection problem" . $err->getMessage();
-      exit();
-  }
 
   /**
   * Custom Functions
@@ -70,27 +72,6 @@
       // Add a new item to the contacts array: url
       // The value is the url to the contact's detail page.
       $contact['url'] = SITE_URL."/contact/".add_underscore($contact['name']);
-
-      // Reformat the birthday value using data() and strtotime()
-      // New format: January 01, 2017
-      // $contact['birthday'] = date('F d, Y', strtotime($contact['birthday']));
-
-      /**
-      * Convert the address value from a single line into associative array
-      * dividing the value into different parts (street, city, state ...)
-      */
-      // if (strpos($contact['address'], ",")) {
-      //   // The explode() function takes a string, and divides it by the delimiter
-      //   $address = explode(", ", $contact['address']);
-      //
-      //   // Convert $address simple array into a associative array
-      //   $contact['address'] = [
-      //     "street" => ($address[0] ? $address[0] : ""),
-      //     "city" => ($address[1] ? $address[1] : ""),
-      //     "state" => ($address[2] ? $address[2] : ""),
-      //     "zip" => ($address[3] ? $address[3] : "")
-      //   ];
-      // }
 
       // return the manipulated $contact array back to array_map()
       return $contact;
