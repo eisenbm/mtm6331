@@ -1,7 +1,7 @@
 <?php
   /* Site path constants */
   define("SITE_ROOT", __DIR__);
-  define("SITE_URL", "/mtm6331/contacts");
+  define("SITE_URL", "/mtm6331/week9/contacts-final");
 
   /* Load the Twig Library */
   require_once SITE_ROOT.'/vendor/autoload.php';
