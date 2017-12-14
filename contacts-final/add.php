@@ -4,49 +4,73 @@
   // If the form has been submitted.
   if (isset($_POST['add_contact'])) {
 
-    // Add new contact to the contacts table
-    $sql = "INSERT INTO `contacts` VALUES (NULL,:name,:company,:thumbnail,:portrait,:birthday,:street,:city,:state,:zip);";
+    // Create query statement to add new contact
+    $sql = "INSERT INTO contacts VALUES (
+      NULL,
+      :name,
+      :company,
+      :thumbnail,
+      :portrait,
+      :birthday,
+      :street,
+      :city,
+      :state,
+      :zip,
+      :email
+    )";
 
+    // Send prepared statement to Database
     $stmt = $pdo->prepare($sql);
 
+    // Create an array of values
     $values = [
-      ':name' => $form['name'],
-      ':company' => $form['company'],
-      ':thumbnail' => $form['thumbnail'],
-      ':portrait' => $form['portrait'],
-      ':birthday' => $form['birthday'],
-      ':street' => $form['street'],
-      ':city' => $form['city'],
-      ':state' => $form['state'],
-      ':zip' => $form['zip'],
-      ':email' => $form['email']
+      ":name" => $_POST['name'],
+      ":company" => $_POST['company'],
+      ":thumbnail" => $_POST['thumbnail'],
+      ":portrait" => $_POST['portrait'],
+      ":birthday" => $_POST['birthday'],
+      ":street" => $_POST['street'],
+      ":city" => $_POST['city'],
+      ":state" => $_POST['state'],
+      ":zip" => $_POST['zip'],
+      ":email" => $_POST['email']
     ];
 
+    // Execute prepared statement with values
     $result = $stmt->execute($values);
 
+    // Check for odbc_error
     check_for_errors($stmt);
 
-    // Getting the contact id
+    // Get contact_id from database
     $contact_id = $pdo->lastInsertId();
 
-    // Add new phone number to the phones table
-    $sql = "INSERT INTO `phones` (`phone_id`, `phone_type`, `phone_number`, `contact_id`) VALUES (NULL,:type,:number,:contact_id)";
+    // Add new phone number to database
+    $sql = "INSERT INTO phones VALUES (
+      NULL,
+      :type,
+      :number,
+      :contact_id
+    )";
 
+    // Send prepare statement to Database
     $stmt = $pdo->prepare($sql);
 
+    // Create an array of values
     $values = [
-      ':type' => "work",
-      ':number' => $form['phone'],
-      ':contact_id' => $contact_id
+      ":type" => "work",
+      ":number" => $_POST['phone'],
+      ":contact_id" => $contact_id
     ];
 
+    // Execute the prepared statement with values
     $result = $stmt->execute($values);
 
+    // Check for errors
     check_for_errors($stmt);
 
-    // redirect back to index.php
-    header("Location: ".SITE_URL."/contact/add_underscores(".$form['name'].")");
-
+    // redirect to the contact page for new contact
+    header("Location: ".SITE_URL."/contact/".add_underscore($_POST['name']));
 
   // If adding a new contact
   } else {

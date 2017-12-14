@@ -2,50 +2,51 @@
   require_once "config.php";
 
   if (isset($_GET['contact'])) {
+
+    // create prepared statement with anonymous variable
     $sql = "SELECT
-      `contact_id` as `id`,
-      `contact_name` as `name`,
-      `contact_company` as `company`,
-      `contact_portrait` as `portrait`,
-      `contact_birthday` as `birthday`,
-      `contact_street` as `street`,
-      `contact_city` as `city`,
-      `contact_state` as `state`,
-      `contact_zip` as `zip`,
-      `contact_email` as `email`
-      FROM `contacts`
-      WHERE `contact_name` = ?";
+    contact_id AS id,
+    contact_name AS name,
+    contact_company AS company,
+    contact_portrait AS portrait,
+    contact_birthday AS birthday,
+    contact_street AS street,
+    contact_city AS city,
+    contact_state AS state,
+    contact_zip AS zip,
+    contact_email AS email
+    FROM contacts
+    WHERE contact_name = ?";
+
+    // send the prepared statement to database
     $stmt = $pdo->prepare($sql);
 
+    // create an array of values for variables
     $values = [remove_underscore($_GET['contact'])];
 
+    // Execute prepared statement with values
     $result = $stmt->execute($values);
 
     check_for_errors($stmt);
 
     if ($contact = $stmt->fetch(PDO::FETCH_ASSOC)) {
-      // reformat the birthday
-      $contact['birthday'] = date('F d, Y', strtotime($contact['birthday']));
 
-      // Get phones from phones table using contact id
-      $sql = "SELECT `phone_type` as `type`, `phone_number` as `number` FROM `phones` WHERE `contact_id` = ?";
-      $stmt = $pdo->prepare($sql);
-      $values = [$contact['id']];
+      // Retrieve phone numbers for contact
+      $sql = "SELECT * FROM phones WHERE contact_id = ".$contact['id'];
 
-      $result = $stmt->execute($values);
+      // Send the query to the database
+      $result = $pdo->query($sql);
 
-      check_for_errors($stmt);
+      // Fetch all rows from result
+      $phones = $result->fetchAll(PDO::FETCH_ASSOC);
 
-      // Retrieve all rows from database and save to $emails
-      $phones = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-      // Add the $emails array to the $contact array
+      // Add the $phones array to $contact array
       $contact['phones'] = $phones;
-
 
 
       $template = $twig->load('contact.html.twig');
       echo $template->render($contact);
+
     // Display error template if no contact found
     } else {
       $contact = trim($_GET['contact']);

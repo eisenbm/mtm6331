@@ -1,7 +1,7 @@
 <?php
   /* Site path constants */
   define("SITE_ROOT", __DIR__);
-  define("SITE_URL", "/mtm6331/week9/contacts-final");
+  define("SITE_URL", "/mtm6331/week9/contacts");
 
   /* Database connection settings. */
   $dbname = "mtm6331-contacts";
@@ -24,7 +24,7 @@
   /* Configure Twig */
   $loader = new Twig_Loader_Filesystem(SITE_ROOT.'/templates');
   $twig = new Twig_Environment($loader, array(
-    //'cache' => SITE_ROOT.'/cache',
+    'cache' => SITE_ROOT.'/cache',
     'auto_reload' => true
   ));
 
@@ -38,7 +38,6 @@
 
   // Define $contacts so that it equals something
   $contacts = [];
-
 
 
   /**
@@ -107,3 +106,12 @@
     	exit;
     }
   }
+
+  // Get contact data from JSON File
+  // Retrieve file content using file_get_contents
+  // file_get_contents returns a string
+  $json = file_get_contents(SITE_ROOT."/data/contacts.json");
+  // convert json string to array
+  // json_decode take two parameters: json string, boolean
+  // Boolean == true, return array, false return an object
+  $contacts = update_contacts(json_decode($json, true));

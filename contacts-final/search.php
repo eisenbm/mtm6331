@@ -1,29 +1,35 @@
 <?php
   require_once "config.php";
 
+  if (isset($_GET['query'])) {
 
-if (isset($_GET['query'])) {
-  // Retrieve all the contacts from the contacts database
-  $sql = "SELECT
-    `contact_name` as name,
-    `contact_company` as company,
-    `contact_thumbnail` as thumbnail
-    FROM `contacts`
-    WHERE `contact_name` LIKE ?;";
+    // Retrieve all contacts whose name matches query
+    $sql = "SELECT
+    contact_name AS name,
+    contact_company AS company,
+    contact_thumbnail AS thumbnail
+    FROM contacts
+    WHERE contact_name LIKE ?";
 
-  $stmt = $pdo->prepare($sql);
+    // Send our prepared statement to database
+    $stmt = $pdo->prepare($sql);
 
-  $values = ['%'.$_GET['query'].'%'];
+    // Create values array
+    $values = [
+      "%".$_GET['query']."%"
+    ];
 
-  $result = $stmt->execute($values);
+    // Execute prepared statement with VALUES
+    $result = $stmt->execute($values);
 
-  check_for_errors($stmt);
+    // check for errors
+    check_for_errors($stmt);
 
-  $contacts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // Fetch all contact from results
+    $contacts = update_contacts($stmt->fetchAll(PDO::FETCH_ASSOC));
 
-  $contacts = update_contacts($contacts);
+    $template = $twig->load('index.html.twig');
+    echo $template->render(["contacts" => $contacts]);
 
-  $template = $twig->load('index.html.twig');
-  echo $template->render(["contacts" => $contacts, "search" => $_GET['query']]);
 
-}
+  }
